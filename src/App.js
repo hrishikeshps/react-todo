@@ -27,14 +27,10 @@ function App() {
       <Header title={title} />
       {/* <TodoList titleClicked={titleClicked}/> */}
         <Routes>
-          <Route exact path="/" element={<Todo />}>
-          </Route>
-          <Route path="about" element={<About />}>
-          </Route>
-          <Route path="contact" element={<Contact />}>
-          </Route>
-          <Route path="dev" element={<Dev />}>
-          </Route>
+          <Route exact path="todo" element={<Todo />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="dev" element={<Dev />} />
         </Routes>
     </div>
   );
