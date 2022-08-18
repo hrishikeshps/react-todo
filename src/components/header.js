@@ -22,6 +22,9 @@ function Header(props) {
                     <li className="nav-item">
                         <Link className="nav-link" to="/dev">Dev</Link>
                     </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/users">Users</Link>
+                    </li>
                 </ul>
             </div>
         </nav>
