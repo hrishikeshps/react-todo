@@ -10,7 +10,7 @@ import Contact from './pages/Contact';
 import Dev from './pages/Dev';
 import Todo from './pages/Todo';
 import Users from './pages/Users';
-
+import BudgetApp from './pages/BudgetApp';
 
 function App() {
   const [title, updateTitle] = useState('TODO App')
@@ -33,6 +33,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="dev" element={<Dev />} />
           <Route path="users" element={<Users />} />
+          <Route path="budget-app" element={<BudgetApp />} />
         </Routes>
     </div>
   );
