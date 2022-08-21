@@ -32,7 +32,6 @@ function AddBudgetModal({show, handleClose}) {
                 </Form.Group>
                 <div className="d-flex justify-content-end">
                     <Button variant="primary" type="submit">Add</Button>
-                    <Button variant="secondary" className="ml-1" type="submit">Cancel</Button>
                 </div>
             </Modal.Body>
         </Form>
