@@ -1,7 +1,7 @@
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "../context/BudgetsContext"
 import BudgetCard from "./BudgetCard"
 
-function UncategorizedBudgetCard({props}) {
+function UncategorizedBudgetCard(props) {
     const { getBudgetExpenses } = useBudgets()
     const amount = getBudgetExpenses(UNCATEGORIZED_BUDGET_ID).reduce((total, expense) => total + expense.amount, 0)
 

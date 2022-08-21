@@ -2,12 +2,20 @@ import React from 'react'
 import { Card, ProgressBar, Stack, Button } from "react-bootstrap";
 import { currencyFormatter } from '../utils';
 
-function BudgetCard({ name, amount, max, gray, onAddExpenseClick }) {
+function BudgetCard({ 
+    name, 
+    amount, 
+    max, 
+    gray, 
+    hideButtons, 
+    onAddExpenseClick,
+    onViewExpensesClick 
+}) {
     const classNames = [];
-    if(amount > max){
+    if (amount > max) {
         classNames.push("bg-danger", "bg-opacity-10")
-    } 
-    else if(gray) {
+    }
+    else if (gray) {
         classNames.push("bg-light")
     }
 
@@ -21,19 +29,23 @@ function BudgetCard({ name, amount, max, gray, onAddExpenseClick }) {
                         {max && (<span className='text-muted fs-6 ms-1'> / {currencyFormatter.format(max)} </span>)}
                     </div>
                 </Card.Title>
-                {max && (<ProgressBar 
-                    variant={getProgressVariant(amount, max)} 
+                {max && (<ProgressBar
+                    variant={getProgressVariant(amount, max)}
                     // now={amount / max * 100} 
                     min={0}
                     max={max}
                     now={amount}
                 />
                 )}
+                {
+                    !hideButtons && (
+                        <Stack direction='horizontal' gap="2" className="mt-4">
+                            <Button variant="outline-primary" className='ms-auto' onClick={onAddExpenseClick}>Add Expense</Button>
+                            <Button variant="outline-secondary" onClick={onViewExpensesClick}>View Expenses</Button>
+                        </Stack>
+                    )
+                }
 
-                <Stack direction='horizontal' gap="2" className="mt-4">
-                    <Button variant="outline-primary" className='ms-auto' onClick={onAddExpenseClick}>Add Expense</Button>
-                    <Button variant="outline-secondary">Add Budget</Button>
-                </Stack>
             </Card.Body>
         </Card>
     )
@@ -41,8 +53,8 @@ function BudgetCard({ name, amount, max, gray, onAddExpenseClick }) {
 
 function getProgressVariant(amount, max) {
     const ratio = amount / max;
-    if(ratio < .5) return "primary"
-    if(ratio < .75) return "warning"
+    if (ratio < .5) return "primary"
+    if (ratio < .75) return "warning"
     return "danger"
 }
 
