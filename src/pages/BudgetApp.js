@@ -4,6 +4,7 @@ import { useBudgets } from '../context/BudgetsContext'
 import BudgetCard from '../components/BudgetCard'
 import AddBudgetModal from '../components/AddBudgetModal'
 import AddExpenseModal from '../components/AddExpenseModal'
+import UncategorizedBudgetCard from '../components/UncategorizedBudgetCard'
 
 function BudgetApp() {
     const [showAddBudgetModal, setShowAddBudgetModal] = React.useState(false)
@@ -45,6 +46,7 @@ function BudgetApp() {
                         )
 
                     })}
+                    <UncategorizedBudgetCard />
 
                 </div>
             </Container>
